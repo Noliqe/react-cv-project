@@ -26,10 +26,13 @@ class App extends Component {
         forms: [],
       },
       experienceInfo: {
-        companyName: '',
         positionTitle: '',
+        companyName: '',
         description: '',
-        date: '',
+        dateStart: '',
+        dateEnd: '',
+        edit: 0,
+        forms: [],
       }
     };
   }
@@ -42,7 +45,7 @@ class App extends Component {
     <h1>Hello World</h1>
     <Personal/>
     <Education Education={this.state.educationalInfo}/>
-    <Experience/>
+    <Experience Experience={this.state.experienceInfo}/>
     </div>
     )
   }
