@@ -15,6 +15,29 @@ class Experience extends Component {
       })
   };
 
+  deleteButton = (index) => {
+    this.setState((prevState) => {
+      let prevForms = prevState.forms.map(e => e);
+      console.log(prevState);
+      prevForms.splice(index, 1);
+      return {
+        forms: prevForms
+      }
+    })
+    this.clearState();
+ }
+
+  // clear state list, prevents autofill forms
+  clearState = () => {
+    this.setState({ 
+      positionTitle: '',
+      companyName: '',
+      description: '',
+      dateStart: '',
+      dateEnd: '',
+     })
+  }
+
 
   // if forms is empty show only button else show all forms
   showButton = () => {
@@ -27,7 +50,17 @@ class Experience extends Component {
       let tsF = this.state.forms;
       // array loop and send form data as props
       for (let i = 0; i < this.state.forms.length; i++) {
-       forms.push(<ExpForm key={i} positionTitle={tsF[i].positionTitle} companyName={tsF[i].companyName} description={tsF[i].description} dateStart={tsF[i].dateStart} dateEnd={tsF[i].dateEnd}/>)
+       forms.push(
+       <ExpForm 
+       key={i} 
+       index={i}
+       deleteButton={this.deleteButton}
+       positionTitle={tsF[i].positionTitle} 
+       companyName={tsF[i].companyName} 
+       description={tsF[i].description} 
+       dateStart={tsF[i].dateStart} 
+       dateEnd={tsF[i].dateEnd}/>
+       )
       }
       // show all forms
       return <div className="Exp">

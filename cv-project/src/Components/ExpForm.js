@@ -19,6 +19,7 @@ class ExpForm extends Component {
             <input type='date' placeholder='From' value={this.props.dateStart} onChange={(event)=>this.inputChangedHandler(event)}/>
             <input type='date' placeholder='To' value={this.props.dateEnd} onChange={(event)=>this.inputChangedHandler(event)}/>
             <input type='text' placeholder='Main activities and responsibilities' value={this.props.description} onChange={(event)=>this.inputChangedHandler(event)}/>
+            <input type='button' value='Delete' onClick={()=>this.props.deleteButton(this.props.index)}/>
           </form>
         </div>
     )

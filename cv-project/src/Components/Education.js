@@ -16,6 +16,28 @@ class Education extends Component {
       })
   };
 
+  deleteButton = (index) => {
+    this.setState((prevState) => {
+      let prevForms = prevState.forms.map(e => e);
+      console.log(prevState);
+      prevForms.splice(index, 1);
+      return {
+        forms: prevForms
+      }
+    })
+    this.clearState();
+ }
+
+  // clear state list, prevents autofill forms
+  clearState = () => {
+    this.setState({ 
+      schoolName: '',
+      studyName: '',
+      studyDateStart: '',
+      studyDateEnd: '',
+     })
+  }
+
 
   // if forms is empty show only button else show all forms
   showButton = () => {
@@ -28,7 +50,16 @@ class Education extends Component {
       let tsF = this.state.forms;
       // array loop and send form data as props
       for (let i = 0; i < this.state.forms.length; i++) {
-       forms.push(<EduForm key={i} studyName={tsF[i].studyName} schoolName={tsF[i].schoolName} studyDateStart={tsF[i].studyDateStart} studyDateEnd={tsF[i].studyDateEnd}/>)
+       forms.push(
+       <EduForm 
+        key={i} 
+        index={i} 
+        deleteButton={this.deleteButton} 
+        studyName={tsF[i].studyName} 
+        schoolName={tsF[i].schoolName} 
+        studyDateStart={tsF[i].studyDateStart} 
+        studyDateEnd={tsF[i].studyDateEnd}/>
+        )
       }
       // show all forms
       return <div className="Edu">
@@ -73,6 +104,7 @@ class Education extends Component {
         edit: 0,
       }
     })
+    this.clearState();
   }
 
   // if edit = 0 show add button else show only form with submit button
@@ -87,7 +119,6 @@ class Education extends Component {
 
 
   render() {
-
 
     return (
     <div className="Education">

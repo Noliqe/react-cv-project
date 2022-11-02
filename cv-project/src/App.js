@@ -43,7 +43,7 @@ class App extends Component {
     return (
     <div className="App">
     <h1>Hello World</h1>
-    <Personal/>
+    <Personal Personal={this.state.generalInfo}/>
     <Education Education={this.state.educationalInfo}/>
     <Experience Experience={this.state.experienceInfo}/>
     </div>

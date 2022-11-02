@@ -2,10 +2,12 @@ import React, { Component } from "react";
 
 class EduForm extends Component {
 
+  // handle error
   inputChangedHandler = (event) => {
+    // eslint-disable-next-line no-unused-vars
     const updatedKeyword = event.target.value;
-
 }
+
 
 // value should be forms{i}
   render() {
@@ -16,7 +18,7 @@ class EduForm extends Component {
       <input type='text' placeholder='School name' value={this.props.schoolName} onChange={(event)=>this.inputChangedHandler(event)}/>
       <input type='date' placeholder='From' value={this.props.studyDateStart} onChange={(event)=>this.inputChangedHandler(event)}/>
       <input type='date' placeholder='To' value={this.props.studyDateEnd} onChange={(event)=>this.inputChangedHandler(event)}/>
-      {/* <input type='button' value='Submit' onClick={this.submitForm}/> */}
+      <input type='button' value='Delete' onClick={()=>this.props.deleteButton(this.props.index)}/>
       </form>
     </div>
     )
