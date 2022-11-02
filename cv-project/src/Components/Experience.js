@@ -111,6 +111,7 @@ class Experience extends Component {
     })
   }
 
+  // render preview section
   renderCv = () => {
     let forms =[];
     let tsF = this.state.forms;

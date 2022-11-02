@@ -6,7 +6,7 @@ class Preview extends Component {
   render() {
     return (
         <div className="preview">
-            <input type='button' value={this.props.name} onClick={()=>this.props.button()}/>
+            <input id="previewButton" type='button' value={this.props.name} onClick={()=>this.props.button()}/>
         </div>
     )
   }

@@ -17,7 +17,7 @@ class Personal extends Component {
 
   renderForm = () => {
     return (
-      <div className="Personal">
+      <div className="form">
           <form>
             <input type='text' placeholder='First Name' value={this.state.firstName} onChange={(event)=>this.handleChange(event, "firstName")}/>
             <input type='text' placeholder='Last Name' value={this.state.lastName} onChange={(event)=>this.handleChange(event, "lastName")}/>
@@ -27,21 +27,22 @@ class Personal extends Component {
         </div>)
   }
 
+  // render preview section
   renderCv = () => {
     return (
       <div className="PersonalCv">
         <div>
             <div>
-                <label className="label">First Name :</label> <label> {this.state.firstName} </label>
+                <label className="label">First Name : </label> <label> {this.state.firstName} </label>
             </div>
             <div>
-                <label className="label">Last name :</label> <label>{this.state.lastName} </label>
+                <label className="label">Last name : </label> <label>{this.state.lastName} </label>
             </div>
             <div>
-                <label className="label">Email :</label><label>{this.state.email} </label>
+                <label className="label">Email : </label><label>{this.state.email} </label>
             </div>
             <div>
-                <label className="label">Phone number :</label> <label>{this.state.phoneNumber} </label>
+                <label className="label">Phone number : </label> <label>{this.state.phoneNumber} </label>
             </div>
         </div>
     </div>

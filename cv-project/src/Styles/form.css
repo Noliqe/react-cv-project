@@ -1,5 +1,54 @@
+#root {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 25px;
+    color: gray;
+}
+
+body {
+    --header-bg-color: rgb(134, 134, 255);
+    --bg-color-1: rgb(214, 214, 255);
+    --bg-color-2: rgb(203, 203, 252);
+    --border-color: rgb(190, 190, 248);
+    --form-color: rgb(134, 134, 255);
+    --button-color: rgb(71, 71, 252);
+    --button-hover-color: rgba(102, 102, 250, 0.726);
+}
+
+.App {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 90vw;
+    background-color: var(--bg-color-1);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    background-color: var(--header-bg-color);
+    width: 90vw;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 .Personal, .Education, .Experience {
-    background-color: rgb(214, 214, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -8,4 +57,108 @@
 .preview {
     display: flex;
     justify-content: center;
+    margin-bottom: 10px;
 }
+
+form {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    width: 60vw;
+}
+
+input[type=text]:hover, input[type=tel]:hover, input[type=date]:hover {
+    border-radius: 5px;
+}
+
+input[type=text], input[type=tel], input[type=date]  {
+    width: 60%;
+    padding: 6px 10px;
+    margin: 2px 0;
+    box-sizing: border-box;
+    border: none;
+    background-color: var(--form-color);
+    color: white;
+}
+
+input::placeholder {
+    font-weight: bold;
+    opacity: 0.5;
+    color: white;
+}
+
+#delButton {
+    background-color: red;
+}
+
+#previewButton {
+    background-color: rgb(147, 54, 253);
+    width: 120px;
+}
+
+#previewButton:hover {
+    background-color: rgba(147, 54, 253, 0.61);;
+}
+
+input[type=button] {
+  background-color: var(--button-color);
+  border: none;
+  color: white;
+  padding: 6px 16px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer; 
+}
+
+input[type=button]:hover {
+    background-color: var(--button-hover-color);
+    color: white;
+}
+
+.Edu, .Exp {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.PersonalCv, .EducationCv, .ExperienceCv {
+    border: 2px solid var(--border-color);
+    width: 344px;
+    margin-bottom: 2px;
+    background-color: var(--bg-color-2);
+    border-radius: 10px;
+    padding: 2px 6px;
+}
+
+.label {
+    margin-right: 5px;
+    font-weight: 600;
+}
+
+/* input[type=range] {
+    width: 50px;
+}
+
+.range {
+    display: flex;
+    align-items: center;
+    width: 60%;
+}
+
+.rangeSub {
+    margin-left: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.rangeSub > p {
+    padding: 0px;
+    margin: 0;
+} */

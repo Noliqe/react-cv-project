@@ -79,7 +79,7 @@ class Education extends Component {
   // render new form which can be filled in
   renderForm = () => {
   return (
-    <div className="Education">
+    <div className="form">
     <form>
     <input type='text' placeholder='Education title' onChange={(event)=>this.handleChange(event, "studyName")}/>
     <input type='text' placeholder='School name' onChange={(event)=>this.handleChange(event, "schoolName")}/>
@@ -109,6 +109,7 @@ class Education extends Component {
     this.clearState();
   }
 
+  // render preview section
   renderCv = () => {
     let forms =[];
     let tsF = this.state.forms;

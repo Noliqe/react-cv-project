@@ -44,7 +44,7 @@ class App extends Component {
     if (this.state.showCv === 0) {
       this.setState({
         showCv: 1,
-        button: 'Update Cv'
+        button: 'Edit Cv'
       })
    } else {
     this.setState({
@@ -58,6 +58,9 @@ class App extends Component {
   render() {
     return (
     <div className="App">
+      <div className="header">
+        <h1>CV Application</h1>
+      </div>
     <Personal Personal={this.state.generalInfo} showCv={this.state.showCv}/>
     <Education Education={this.state.educationalInfo} showCv={this.state.showCv}/>
     <Experience Experience={this.state.experienceInfo} showCv={this.state.showCv}/>

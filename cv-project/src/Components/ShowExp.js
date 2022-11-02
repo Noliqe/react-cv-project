@@ -10,7 +10,7 @@ class ShowExp extends Component {
 
   render() {
     return (
-      <div className="EperienceCv">
+      <div className="ExperienceCv">
         <div>
             <div>
                 <label className="label">Job title :</label> <label> {this.props.positionTitle} </label>
