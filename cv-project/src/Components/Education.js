@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EduForm from './EduForm'
+import ShowEdu from "./ShowEdu";
 
 class Education extends Component {
 
@@ -16,6 +17,7 @@ class Education extends Component {
       })
   };
 
+  // delete form with its correlation index
   deleteButton = (index) => {
     this.setState((prevState) => {
       let prevForms = prevState.forms.map(e => e);
@@ -107,19 +109,37 @@ class Education extends Component {
     this.clearState();
   }
 
+  renderCv = () => {
+    let forms =[];
+    let tsF = this.state.forms;
+    for (let i = 0; i < this.state.forms.length; i++) {
+      forms.push(
+      <ShowEdu
+       key={i}
+       studyName={tsF[i].studyName} 
+       schoolName={tsF[i].schoolName} 
+       studyDateStart={tsF[i].studyDateStart} 
+       studyDateEnd={tsF[i].studyDateEnd}/>
+       )
+     }
+     return <div className="Edu">
+       {forms}
+     </div>
+  }
+
   // if edit = 0 show add button else show only form with submit button
   handleRender = () => {
-    if (this.state.edit === 0) {
+    if (this.state.edit === 0 && this.props.showCv === 0) {
       return this.showButton();
-    }
-    if (this.state.edit === 1) {
+    } else if (this.state.edit === 1 && this.props.showCv === 0) {
       return this.renderForm();
+    } else if (this.props.showCv === 1) {
+      return this.renderCv();
     }
   }
 
 
   render() {
-
     return (
     <div className="Education">
       <h1>Education Information</h1>

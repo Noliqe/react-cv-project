@@ -9,7 +9,6 @@ class ExpForm extends Component {
 
 }
 
-// value should be forms{i}
   render() {
     return (
         <div className="Experience">

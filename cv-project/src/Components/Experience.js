@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ExpForm from './ExpForm';
+import ShowExp from "./ShowExp";
 
 class Experience extends Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class Experience extends Component {
       })
   };
 
+  // delete form with its correlation index
   deleteButton = (index) => {
     this.setState((prevState) => {
       let prevForms = prevState.forms.map(e => e);
@@ -109,13 +111,33 @@ class Experience extends Component {
     })
   }
 
+  renderCv = () => {
+    let forms =[];
+    let tsF = this.state.forms;
+    for (let i = 0; i < this.state.forms.length; i++) {
+      forms.push(
+        <ShowExp
+        key={i} 
+        positionTitle={tsF[i].positionTitle} 
+        companyName={tsF[i].companyName} 
+        description={tsF[i].description} 
+        dateStart={tsF[i].dateStart} 
+        dateEnd={tsF[i].dateEnd}/>
+       )
+     }
+     return <div className="Edu">
+       {forms}
+     </div>
+  }
+
   // if edit = 0 show add button else show only form with submit button
   handleRender = () => {
-    if (this.state.edit === 0) {
+    if (this.state.edit === 0 && this.props.showCv === 0) {
       return this.showButton();
-    }
-    if (this.state.edit === 1) {
+    } else if (this.state.edit === 1 && this.props.showCv === 0) {
       return this.renderForm();
+    } else if (this.props.showCv === 1) {
+      return this.renderCv();
     }
   }
 

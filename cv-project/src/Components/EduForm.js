@@ -8,8 +8,6 @@ class EduForm extends Component {
     const updatedKeyword = event.target.value;
 }
 
-
-// value should be forms{i}
   render() {
     return (
       <div className="Education">
