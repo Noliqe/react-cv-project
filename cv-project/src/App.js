@@ -1,73 +1,67 @@
 // App.js
 
-import React, { Component } from "react";
+// import React, { Component } from "react";
+import React, { useState } from 'react';
 import Personal from './Components/Personal'
 import Education from './Components/Education'
 import Experience from './Components/Experience'
 import Preview from "./Components/preview";
 import './Styles/form.css';
 
-class App extends Component {
-  constructor() {
-    super();
+const App = () => {
 
-    this.state = {
-      generalInfo: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        phoneNumber: '',
-      },
-      educationalInfo: {
-        schoolName: '',
-        studyName: '',
-        studyDateStart: '',
-        studyDateEnd: '',
-        edit: 0,
-        forms: [],
-      },
-      experienceInfo: {
-        positionTitle: '',
-        companyName: '',
-        description: '',
-        dateStart: '',
-        dateEnd: '',
-        edit: 0,
-        forms: [],
-      },
-      showCv: 0,
-      button: 'Preview',
-    }
-  }
+  const [genInfo, setGenInfo] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: '',
+  });
 
-  previewCv = () => {
-    if (this.state.showCv === 0) {
-      this.setState({
-        showCv: 1,
-        button: 'Edit Cv'
-      })
+  const [eduInfo, setEduInfo] = useState({
+    schoolName: '',
+    studyName: '',
+    studyDateStart: '',
+    studyDateEnd: '',
+    edit: 0,
+    forms: [],
+  })
+
+  const [expInfo, setExpInfo] = useState({
+    positionTitle: '',
+    companyName: '',
+    description: '',
+    dateStart: '',
+    dateEnd: '',
+    edit: 0,
+    forms: [],
+  })
+
+  const [showCv, setShowCv] = useState(0);
+  const [button, setButton] = useState('Preview');
+
+
+  const previewCv = () => {
+    if (showCv === 0) {
+      setShowCv(1)
+      setButton('Edit Cv')
    } else {
-    this.setState({
-      showCv: 0,
-      button: 'Preview'
-    })
+      setShowCv(0)
+      setButton('Preview')
    }
   }
 
 
-  render() {
     return (
     <div className="App">
       <div className="header">
         <h1>CV Application</h1>
       </div>
-    <Personal Personal={this.state.generalInfo} showCv={this.state.showCv}/>
-    <Education Education={this.state.educationalInfo} showCv={this.state.showCv}/>
-    <Experience Experience={this.state.experienceInfo} showCv={this.state.showCv}/>
-    <Preview button={this.previewCv} name={this.state.button}/>
+    <Personal Personal={genInfo} showCv={showCv}/>
+    <Education Education={eduInfo} showCv={showCv}/>
+    <Experience Experience={expInfo} showCv={showCv}/>
+    <Preview button={previewCv} name={button}/>
     </div>
     )
-  }
 }
 
 export default App;
